@@ -1,5 +1,6 @@
-FROM python:3.7-slim
+FROM node:14-alpine
 WORKDIR /app
-COPY app.py .
-RUN pip install flask
-CMD ["python", "app.py"]
+COPY . .
+RUN npm install
+EXPOSE 3000
+CMD ["node", "app.js"]
