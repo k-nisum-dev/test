@@ -5,11 +5,11 @@ jobs:
     docker:
       - image: circleci/python:3.8
     steps:
+      - setup_remote_docker
       - checkout
       - run:
           name: Build Docker image
           command: |
-            sudo systemctl start docker
             docker build -t avas01/testing:v2 .
             docker push avas01/testing:v2
 
